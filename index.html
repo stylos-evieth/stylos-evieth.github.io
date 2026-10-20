@@ -148,6 +148,35 @@ section{display:flex;flex-direction:column;gap:16px}
 .services span{grid-column:1;color:var(--muted);font-size:.9rem}
 .services em{grid-column:2;grid-row:1;font-style:normal;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);align-self:center}
 
+/* Asistente */
+.chat{border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;flex-direction:column}
+.chat-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.chat-av{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none;overflow:hidden}
+.chat-av img{width:30px;filter:var(--logo-filter)}
+.chat-top b{display:block;font-weight:500}
+.chat-top small{font-size:.78rem;color:var(--muted)}
+.chat-top small::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#3fae6a;margin-right:6px}
+.chat-log{height:420px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.msg{max-width:85%;padding:10px 14px;font-size:.95rem;line-height:1.45;animation:rise .3s ease both;overflow-wrap:anywhere}
+.msg.bot{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:4px 16px 16px 16px}
+.msg.me{align-self:flex-end;background:var(--ink);color:var(--bg);border-radius:16px 4px 16px 16px}
+.msg.card{max-width:100%;width:100%;background:var(--surface);border:1px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;gap:8px}
+.msg.card h3{margin:0;font-family:var(--display);font-weight:500;font-size:1.25rem}
+.msg.card pre{margin:0;white-space:pre-wrap;font:inherit;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+.typing{display:flex;gap:4px;padding:14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.chat-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 16px}
+.chip{appearance:none;border:1px solid var(--ink);background:var(--surface);color:var(--ink);padding:9px 14px;border-radius:20px;font:500 .88rem var(--body);cursor:pointer;text-align:left}
+.chip:hover{background:var(--ink);color:var(--bg)}
+.chip.solid{background:var(--ink);color:var(--bg)}
+.chip.solid:hover{opacity:.88}
+.chip svg{width:15px;height:15px;vertical-align:-2px;margin-right:6px}
+.chat-in{display:flex;gap:8px;padding:0 16px 16px}
+.chat-in input{flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:400 .95rem var(--body);border-radius:22px}
+.chat-in input:focus{outline:2px solid var(--accent);outline-offset:1px}
+
 /* Reservar por servicio */
 .services .book{grid-column:2;grid-row:1 / span 2;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid var(--ink);
   text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
@@ -405,6 +434,20 @@ body.entered .links>*:nth-child(6){animation-delay:.4s}
     </div>
   </section>
 
+  <section aria-labelledby="h-chat" id="asistente">
+    <div class="sec-head">
+      <span class="eyebrow">Asistente</span>
+      <h2 id="h-chat">¿No sabes qué hacerte?</h2>
+      <p>Responde unas preguntas rápidas y te decimos qué servicio te conviene. Al final envías tu consulta por WhatsApp, con nota de voz o foto si quieres.</p>
+    </div>
+    <div class="chat">
+      <div class="chat-top"><span class="chat-av"><img src="img/logo.svg" alt=""></span><span><b>Asistente Stylos Evieth</b><small>Responde al instante</small></span></div>
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <div class="chat-chips" id="chat-chips"></div>
+      <form class="chat-in" id="chat-form" hidden><input id="chat-text" type="text" placeholder="Escribe aquí…" autocomplete="off" aria-label="Tu mensaje"><button class="chip solid" type="submit">Enviar</button></form>
+    </div>
+  </section>
+
   <section aria-labelledby="h-serv">
     <div class="sec-head">
       <span class="eyebrow">Lo que hacemos</span>
@@ -522,6 +565,7 @@ const ICON = {
   ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
   tt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>',
   tel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>',
+  chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>',
   card:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>',
   pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
   sc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1 20 20M8.1 15.9 20 4"/></svg>',
@@ -547,6 +591,7 @@ links.append(
     sub: SALON.instagram ? '@' + SALON.instagram : 'Ver publicaciones'}),
   linkBtn({icon:'tt', label:'TikTok',
     href:'https://www.tiktok.com/@' + SALON.tiktok, sub:'@' + SALON.tiktok}),
+  linkBtn({icon:'chat', label:'¿No sabes qué hacerte?', href:'#asistente', sub:'Habla con la asistente y te recomienda'}),
   linkBtn({icon:'sc', label:'Servicios', href:'#h-serv', sub:'Alisado, color, rizos y cortes'}),
   linkBtn({icon:'card', label:'Formas de pago', href:'#pago', sub:'Pago Móvil · efectivo en $, pesos y Bs'}),
   linkBtn({icon:'pin', label:'Cómo llegar', href: SALON.mapa || '',
@@ -566,6 +611,84 @@ document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () =
   };
   try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
 }));
+
+/* Asistente guiado */
+(function(){
+  const log = document.getElementById('chat-log'), chips = document.getElementById('chat-chips');
+  const form = document.getElementById('chat-form'), input = document.getElementById('chat-text');
+  const A = {};
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function add(cls, html){ const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; log.append(d); log.scrollTop = log.scrollHeight; return d; }
+  async function bot(text){
+    const t = document.createElement('div'); t.className = 'msg bot typing'; t.innerHTML = '<i></i><i></i><i></i>'; log.append(t); log.scrollTop = log.scrollHeight;
+    await wait(Math.min(1100, 350 + text.length * 9)); t.remove(); add('bot', text);
+  }
+  function ask(options, cb){
+    chips.innerHTML = ''; form.hidden = true;
+    options.forEach(o => { const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = o; b.onclick = () => { chips.innerHTML = ''; add('me', esc(o)); cb(o); }; chips.append(b); });
+  }
+  function askText(cb){
+    chips.innerHTML = ''; form.hidden = false; input.value = '';
+    const skip = document.createElement('button'); skip.type = 'button'; skip.className = 'chip'; skip.textContent = 'Saltar';
+    skip.onclick = () => { form.hidden = true; chips.innerHTML = ''; add('me', 'Saltar'); cb(''); }; chips.append(skip);
+    form.onsubmit = e => { e.preventDefault(); const v = input.value.trim(); if (!v) return; form.hidden = true; chips.innerHTML = ''; add('me', esc(v)); cb(v); };
+  }
+  const GOALS = {
+    'Liso y sin frizz': {s:'Alisado y keratina', d:'Deja el cabello liso, sin frizz y con brillo que dura semanas.'},
+    'Cambiar o retocar el color': {s:'Coloración', d:'Tinte completo, retoque o un tono nuevo según lo que quieras.'},
+    'Cubrir canas': {s:'Coloración con cobertura de canas', d:'Un color parejo de raíz a puntas.'},
+    'Rizos definidos': {s:'Permanente y rizos', d:'Ondas o rizos definidos y con volumen.'},
+    'Corte o cambio de look': {s:'Corte y secado', d:'Corte a tu medida y brushing para salir lista.'},
+    'Recuperar cabello dañado': {s:'Tratamiento de hidratación y reconstrucción', d:'Devuelve suavidad y fuerza al cabello maltratado.'},
+    'Quiero asesoría': {s:'Asesoría con Jeussmarlen', d:'Ella revisa tu cabello y te recomienda lo que mejor te queda.'}
+  };
+  function notes(){
+    const n = [], g = A.goal, st = A.state;
+    if (st === 'Decolorado o con mechas' && (g === 'Liso y sin frizz' || g === 'Cambiar o retocar el color')) n.push('Como tu cabello está decolorado, primero se revisa si conviene un tratamiento antes.');
+    if (st === 'Con alisado anterior' && g === 'Rizos definidos') n.push('Como tienes un alisado, Jeussmarlen debe evaluar tu cabello antes de hacer rizos.');
+    if (st === 'Con alisado anterior' && g === 'Liso y sin frizz') n.push('Si ya tienes alisado, puede que solo necesites un retoque de raíz.');
+    if (A.len === 'Largo (cintura o más)') n.push('En cabello largo el servicio toma más tiempo, así que conviene apartar la cita con anticipación.');
+    if (g !== 'Recuperar cabello dañado' && st === 'Decolorado o con mechas') n.push('También te puede venir bien un tratamiento de hidratación.');
+    return n;
+  }
+  async function start(){
+    log.innerHTML = ''; for (const k in A) delete A[k];
+    await bot('Hola, soy la asistente de Stylos Evieth. Te ayudo a elegir tu servicio y a pedir tu cita.');
+    await bot('¿Qué te gustaría lograr con tu cabello?');
+    ask(Object.keys(GOALS), async g => {
+      A.goal = g;
+      await bot('¿Qué tan largo tienes el cabello?');
+      ask(['Corto','Hasta los hombros','Media espalda','Largo (cintura o más)'], async l => {
+        A.len = l;
+        await bot('¿Cómo está tu cabello ahora?');
+        ask(['Natural, sin químicos','Teñido','Con alisado anterior','Decolorado o con mechas'], async s => {
+          A.state = s;
+          await bot('¿Algo más que quieras contarle a Jeussmarlen? Por ejemplo, el tono que quieres o para cuándo necesitas la cita.');
+          askText(async t => { A.extra = t; await result(); });
+        });
+      });
+    });
+  }
+  async function result(){
+    const r = GOALS[A.goal];
+    await bot('Listo, esto es lo que te recomiendo:');
+    const sum = 'Hola, quiero una cita en Stylos Evieth.\nServicio: ' + r.s + '\nLargo: ' + A.len + '\nMi cabello está: ' + A.state + (A.extra ? '\nDetalles: ' + A.extra : '');
+    const n = notes();
+    const card = add('card', '<span class="eyebrow">Tu servicio</span><h3>' + esc(r.s) + '</h3><p>' + esc(r.d) + '</p>' + n.map(x => '<p style="color:var(--muted);font-size:.88rem">' + esc(x) + '</p>').join('') + '<pre>' + esc(sum) + '</pre>');
+    await bot('Puedes enviarle este resumen por WhatsApp o copiarlo. Si prefieres explicarlo con una nota de voz o mandar una foto de referencia, toca la segunda opción.');
+    chips.innerHTML = '';
+    const mk = (label, cls, fn, icon) => { const b = document.createElement(fn.href ? 'a' : 'button'); b.className = 'chip ' + cls; b.innerHTML = (icon || '') + label; if (fn.href){ b.href = fn.href; b.target = '_blank'; b.rel = 'noopener'; b.style.textDecoration = 'none'; } else { b.type = 'button'; b.onclick = fn; } chips.append(b); return b; };
+    mk('Enviar por WhatsApp', 'solid', {href:'https://wa.me/' + SALON.whatsapp + '?text=' + encodeURIComponent(sum)}, ICON.wa);
+    mk('Nota de voz o foto', '', {href:'https://wa.me/' + SALON.whatsapp + '?text=' + encodeURIComponent('Hola, quiero una cita para ' + r.s.toLowerCase() + '. Te mando una nota de voz o una foto de referencia.')});
+    const cp = mk('Copiar resumen', '', () => {
+      const done = () => { cp.textContent = 'Copiado'; setTimeout(() => cp.textContent = 'Copiar resumen', 1600); };
+      try { navigator.clipboard.writeText(sum).then(done, () => { const s = getSelection(), rg = document.createRange(); rg.selectNodeContents(card.querySelector('pre')); s.removeAllRanges(); s.addRange(rg); cp.textContent = 'Mantén presionado para copiar'; }); } catch(e){}
+    });
+    mk('Empezar de nuevo', '', () => start());
+  }
+  start();
+})();
 
 /* Reservar por servicio */
 document.querySelectorAll('.services li').forEach(li => {
