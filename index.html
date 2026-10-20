@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stylos Evieth · Peluquería y estilismo en Táriba</title>
+<meta name="description" content="Alisados, color, rizos y cortes en Las Vegas de Táriba, frente a Moto Zone EK. Reserva tu cita por WhatsApp.">
+<meta name="theme-color" content="#f6f6f4">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<link rel="apple-touch-icon" href="img/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stylos Evieth">
+<meta property="og:description" content="Peluquería y estilismo en Táriba. Alisados, color, rizos y cortes. Reserva por WhatsApp.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:locale" content="es_VE">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: una columna estrecha tipo "link en bio" (máx. 480px), con losas de mármol como fondo de secciones y fotos 3:4 a sangre */
+:root{
+  --bg:#f6f6f4;
+  --surface:#ffffff;
+  --ink:#141414;
+  --muted:#5f625f;
+  --line:#dcdcd8;
+  --marble:#e9eae7;
+  --accent:#8a4b2c;      /* cobre, tomado del color de la clienta */
+  --on-accent:#ffffff;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Jost", "Futura", "Avenir Next", system-ui, sans-serif;
+  --logo-filter:none;
+  --mustard:#efcf6e;
+  --mustard-soft:#f8eabf;
+  --gold:#e3b04b;
+  --blush:#f4cdbd;
+  --cream:#fbf5e4;
+  --glow-opacity:.6;
+  --glass:rgba(255,255,255,.62);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121212; --surface:#1b1b1a; --ink:#f1f0ec; --muted:#a6a6a1; --line:#2f2f2d; --marble:#1f201f;
+    --accent:#d08a62; --on-accent:#140c08; --logo-filter:invert(1); color-scheme:dark;
+    --mustard:#8a6a1f; --mustard-soft:#4a3c1a; --gold:#7a5a18; --blush:#5a3428; --cream:#1d1a12; --glow-opacity:.32; --glass:rgba(27,27,26,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121212; --surface:#1b1b1a; --ink:#f1f0ec; --muted:#a6a6a1; --line:#2f2f2d; --marble:#1f201f;
+  --accent:#d08a62; --on-accent:#140c08; --logo-filter:invert(1); color-scheme:dark;
+  --mustard:#8a6a1f; --mustard-soft:#4a3c1a; --gold:#7a5a18; --blush:#5a3428; --cream:#1d1a12; --glow-opacity:.32; --glass:rgba(27,27,26,.6);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 48px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.005em}
+h2{font-size:1.75rem;line-height:1.15}
+p{margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* Encabezado */
+header{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+  margin-inline:calc(50% - 50vw);padding:56px max(16px, env(safe-area-inset-right, 0px)) 36px max(16px, env(safe-area-inset-left, 0px));
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 72%,transparent 100%)}
+/* Fondo ambiental: manchas de color translúcidas que nadan de lado a lado detrás del contenido */
+.ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;opacity:var(--glow-opacity)}
+.ambient i{position:absolute;border-radius:50%;filter:blur(70px)}
+.ambient .a1{width:62vw;height:62vw;max-width:520px;max-height:520px;top:8%;left:-20%;background:var(--mustard);animation:swimR 22s ease-in-out infinite alternate}
+.ambient .a2{width:55vw;height:55vw;max-width:460px;max-height:460px;top:42%;right:-22%;background:var(--blush);animation:swimL 26s ease-in-out infinite alternate}
+.ambient .a3{width:50vw;height:50vw;max-width:420px;max-height:420px;bottom:-10%;left:-10%;background:var(--mustard-soft);animation:swimR 30s ease-in-out infinite alternate-reverse}
+@keyframes swimR{from{transform:translate(0,0)}to{transform:translate(60vw,6vh)}}
+@keyframes swimL{from{transform:translate(0,0)}to{transform:translate(-60vw,-5vh)}}
+.logo{width:128px;height:auto;filter:var(--logo-filter)}
+header h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tag{font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chips span+span::before{content:"·";margin-right:14px;color:var(--muted)}
+
+/* Enlaces */
+.links{display:flex;flex-direction:column;gap:10px}
+.btn{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);text-decoration:none;
+  font-size:1rem;font-weight:500;letter-spacing:.02em;transition:background .2s,color .2s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn .lbl{flex:1;min-width:0}
+.btn small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);letter-spacing:0}
+.btn .arr{font-family:var(--display);font-size:1.3rem;line-height:1}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary small{color:inherit;opacity:.75}
+.btn.primary{border-color:var(--ink)}
+.btn.primary:hover{opacity:.88}
+.btn:not(.primary):hover{border-color:var(--ink)}
+.btn.pending{cursor:default}
+.btn.pending .arr{opacity:.35}
+
+section{display:flex;flex-direction:column;gap:16px}
+.sec-head{display:flex;flex-direction:column;gap:6px}
+.sec-head p{color:var(--muted);font-size:.95rem}
+
+/* Antes y después */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line)}
+.tab{appearance:none;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 4px;margin-right:22px;
+  font:500 .8rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--ink)}
+.ba{position:relative;aspect-ratio:3/4;max-width:100%;overflow:hidden;background:var(--marble);user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .divider{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.ba .knob{position:absolute;top:50%;left:var(--pos,50%);width:44px;height:44px;border-radius:50%;background:#fff;color:#141414;transform:translate(-50%,-50%);
+  display:grid;place-items:center;font-family:var(--display);font-size:1.1rem;pointer-events:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.ba .tagl,.ba .tagr{position:absolute;top:12px;padding:5px 10px;background:rgba(20,20,20,.72);color:#fff;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;pointer-events:none}
+.ba .tagl{left:12px}.ba .tagr{right:12px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba-note{font-size:.88rem;color:var(--muted)}
+
+/* Reels */
+.reels{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:thin}
+.reel{position:relative;aspect-ratio:9/16;background:var(--marble);scroll-snap-align:start;overflow:hidden}
+.reel video{width:100%;height:100%;object-fit:cover;display:block}
+.reel button{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:pointer;display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;color:#fff}
+.reel .play{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(20,20,20,.6)}
+.reel .play svg{width:14px;height:14px}
+.reel.playing .play{opacity:0}
+.reel .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 10px 10px 54px;font-size:.78rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));pointer-events:none;text-align:left}
+.reel.playing .cap{opacity:0}
+.scroll-hint{font-size:.8rem;color:var(--muted)}
+
+/* Galería */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--marble)}
+.gallery figcaption{font-size:.8rem;color:var(--muted)}
+
+/* Servicios */
+.services{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.services li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.services strong{font-family:var(--display);font-weight:500;font-size:1.15rem}
+.services span{grid-column:1;color:var(--muted);font-size:.9rem}
+.services em{grid-column:2;grid-row:1;font-style:normal;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);align-self:center}
+
+/* Formas de pago */
+.pay{border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;flex-direction:column}
+.pay-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.pay-head strong{font-family:var(--display);font-weight:500;font-size:1.3rem}
+.pay-head span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pay dl{margin:0;padding:4px 18px}
+.pay .row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pay .row:last-child{border-bottom:0}
+.pay dt{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);grid-column:1}
+.pay dd{margin:0;grid-column:1;font-size:1.08rem;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.02em;user-select:all;min-width:0;overflow-wrap:anywhere}
+.copy{grid-column:2;grid-row:1 / span 2;appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:8px 12px;
+  font:500 .7rem var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;min-width:84px}
+.copy:hover{border-color:var(--ink)}
+.copy.ok{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pay-all{appearance:none;margin:4px 18px 18px;padding:14px;border:0;background:var(--ink);color:var(--bg);font:500 .8rem var(--body);letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.cash{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cash div{border:1px solid var(--line);background:var(--glass);padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cash b{font-family:var(--display);font-weight:500;font-size:1.6rem;line-height:1}
+.cash span{font-size:.78rem;color:var(--muted)}
+.pay-note{font-size:.88rem;color:var(--muted)}
+.steps{margin:0;padding:14px 18px 6px 38px;display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--muted)}
+.steps b{color:var(--ink);font-weight:500}
+.steps li::marker{font-family:var(--display);color:var(--ink)}
+#pay-data{display:flex;flex-direction:column;border-top:1px solid var(--line);animation:rise .4s ease}
+#pay-data .pay-all{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-bottom:10px}
+#pay-data .pay-all.ok{background:var(--ink);color:var(--bg)}
+.pay-wa{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 18px 18px;padding:14px;background:var(--ink);color:var(--bg);text-decoration:none;
+  font:500 .8rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.pay-wa svg{width:18px;height:18px}
+
+/* Productos */
+.marble{background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);padding:22px 18px;display:flex;flex-direction:column;gap:14px}
+.prod{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+
+/* Instagram */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ig a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px;border:1px solid var(--line);background:var(--glass);text-decoration:none;font-size:.9rem}
+.ig a:hover{border-color:var(--ink)}
+
+footer{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--muted);font-size:.85rem;padding-top:8px;border-top:1px solid var(--line)}
+footer .logo{width:64px;margin-top:20px}
+.todo{border:1px dashed var(--accent);color:var(--accent);padding:10px 12px;font-size:.82rem}
+
+/* Pantalla de bienvenida */
+.splash{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;
+  padding:max(24px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background:var(--bg);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
+  transition:opacity .7s ease, transform .7s ease}
+.splash.out{opacity:0;transform:translateY(-24px);pointer-events:none}
+.s-mark{position:relative;width:200px;max-width:60vw;display:grid;place-items:center}
+.s-mark::before{content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(.2);
+  border:1px solid var(--ink);opacity:0;animation:ring 1.6s ease-out 1.05s forwards}
+.s-mark::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%) no-repeat;background-size:250% 100%;background-position:150% 0;
+  -webkit-mask:url(img/logo.svg) center/contain no-repeat;mask:url(img/logo.svg) center/contain no-repeat;animation:shine 1.3s ease-in-out 1.6s forwards}
+.splash .s-logo{width:100%;height:auto;filter:var(--logo-filter) blur(14px);opacity:0;transform:scale(2.2);
+  animation:slam 1.1s cubic-bezier(.16,1,.3,1) .25s forwards, breathe 5s ease-in-out 2.8s infinite}
+@keyframes slam{0%{opacity:0;transform:scale(2.2);filter:var(--logo-filter) blur(14px)}60%{opacity:1;transform:scale(.97);filter:var(--logo-filter) blur(0)}100%{opacity:1;transform:scale(1);filter:var(--logo-filter) blur(0)}}
+@keyframes ring{0%{opacity:.6;transform:translate(-50%,-50%) scale(.3)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.4)}}
+@keyframes shine{to{background-position:-150% 0}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+/* WhatsApp flotante (solo celular) */
+.wa-float{position:fixed;z-index:40;right:max(16px, calc(env(safe-area-inset-right, 0px) + 12px));bottom:calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display:flex;align-items:center;gap:8px;height:52px;padding:0 20px 0 16px;border-radius:26px;background:var(--ink);color:var(--bg);text-decoration:none;
+  font-weight:500;font-size:.9rem;box-shadow:0 6px 20px rgba(0,0,0,.18);transform:translateY(120px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.wa-float svg{width:22px;height:22px}
+.wa-float.show{transform:none}
+/* Visor de fotos */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.94);display:flex;align-items:center;justify-content:center;
+  padding:max(56px, calc(env(safe-area-inset-top, 0px) + 56px)) max(16px, env(safe-area-inset-right, 0px)) max(72px, calc(env(safe-area-inset-bottom, 0px) + 72px)) max(16px, env(safe-area-inset-left, 0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;display:block;animation:lbIn .35s ease}
+@keyframes lbIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.lb button{position:absolute;appearance:none;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;font-family:var(--display);font-size:1.4rem;line-height:1}
+.lb .lb-x{top:calc(env(safe-area-inset-top, 0px) + 12px);right:max(16px, env(safe-area-inset-right, 0px))}
+.lb .lb-p{left:max(16px, env(safe-area-inset-left, 0px));bottom:calc(env(safe-area-inset-bottom, 0px) + 14px)}
+.lb .lb-n{right:max(16px, env(safe-area-inset-right, 0px));bottom:calc(env(safe-area-inset-bottom, 0px) + 14px)}
+.lb .lb-cap{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom, 0px) + 26px);text-align:center;color:#fff;font-size:.85rem;opacity:.85;pointer-events:none}
+.gallery img{cursor:zoom-in}
+.ba .zoom{position:absolute;right:12px;bottom:12px;z-index:3;appearance:none;border:0;background:rgba(20,20,20,.72);color:#fff;font:500 .7rem var(--body);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;cursor:zoom-in}
+/* Botón de sonido */
+.sound{position:fixed;z-index:40;right:max(16px, calc(env(safe-area-inset-right, 0px) + 12px));bottom:calc(env(safe-area-inset-bottom, 0px) + 80px);
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.sound svg{width:20px;height:20px}
+.sound .bars{display:flex;gap:3px;align-items:flex-end;height:16px}
+.sound .bars i{width:3px;background:currentColor;height:30%;animation:eq 1s ease-in-out infinite}
+.sound .bars i:nth-child(2){animation-delay:.2s}.sound .bars i:nth-child(3){animation-delay:.4s}
+.sound.muted .bars i{animation:none;height:20%}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+.splash .s-name{font-family:var(--display);font-size:1.9rem;letter-spacing:.02em;opacity:0;animation:sName 1.4s ease .9s forwards}
+.splash .s-line{width:0;height:1px;background:var(--ink);opacity:.5;animation:sLine 1s ease 1.4s forwards}
+.splash .s-sub{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);opacity:0;animation:sFade .8s ease 1.7s forwards}
+.splash .s-enter{appearance:none;margin-top:14px;padding:14px 44px;border:1px solid var(--ink);background:transparent;color:var(--ink);
+  font:500 .8rem var(--body);letter-spacing:.28em;text-transform:uppercase;cursor:pointer;opacity:0;animation:sFade .8s ease 2.1s forwards;transition:background .3s,color .3s}
+.splash .s-enter:hover{background:var(--ink);color:var(--bg)}
+@keyframes sIn{to{opacity:1;transform:scale(1)}}
+@keyframes sName{from{opacity:0;letter-spacing:.35em}to{opacity:1;letter-spacing:.02em}}
+@keyframes sLine{to{width:64px}}
+@keyframes sFade{to{opacity:1}}
+body.entered .links>*{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+body.entered .links>*:nth-child(2){animation-delay:.08s}
+body.entered .links>*:nth-child(3){animation-delay:.16s}
+body.entered .links>*:nth-child(4){animation-delay:.24s}
+body.entered .links>*:nth-child(5){animation-delay:.32s}
+body.entered .links>*:nth-child(6){animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion: reduce){.splash *{opacity:1!important}.splash .s-line{width:64px}.splash .s-logo{filter:var(--logo-filter)!important;transform:none!important}*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
+@media (min-width:560px){.reels{grid-auto-columns:31%}}
+.side,.main{display:flex;flex-direction:column;gap:44px;min-width:0}
+
+/* Versión computador: columna izquierda fija con logo y botones, derecha con los trabajos */
+@media (min-width:960px){
+  .wrap{max-width:1200px;display:grid;grid-template-columns:minmax(320px,400px) 1fr;gap:72px;align-items:start}
+  .side{position:sticky;top:0;max-height:100vh;overflow-y:auto;padding-block:48px 32px;gap:32px;scrollbar-width:none}
+  .side::-webkit-scrollbar{display:none}
+  header{margin-inline:0;padding:0;background:none}
+  header .logo{width:150px}
+  .main{padding-block:64px 0;gap:72px}
+  h2{font-size:2.4rem}
+  .ba{max-width:620px}
+  .reels{grid-auto-columns:calc((100% - 30px) / 4);overflow-x:auto}
+  .gallery{grid-template-columns:repeat(4,1fr);gap:12px}
+  .services{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;border-top:0}
+  .services li{border-top:1px solid var(--line);border-bottom:0}
+  .prod{grid-template-columns:repeat(3,minmax(0,200px))}
+  .ig{grid-template-columns:repeat(4,1fr)}
+  footer{align-items:flex-start;text-align:left}
+  .wa-float{display:none}
+  .sound{bottom:calc(env(safe-area-inset-bottom, 0px) + 16px)}
+  .splash .s-mark{width:260px}
+  .splash .s-sub{font-size:.85rem}
+}
+</style>
+
+</head>
+<body>
+<div class="splash" id="splash" role="dialog" aria-label="Bienvenida a Stylos Evieth">
+  <div class="s-mark"><img class="s-logo" src="img/logo.svg" alt="Logo de Stylos Evieth"></div>
+  <div class="s-line"></div>
+  <p class="s-sub">Peluquería y estilismo · Táriba</p>
+  <button class="s-enter" id="enter" type="button">Entrar</button>
+</div>
+<button class="sound" id="sound" type="button" aria-label="Silenciar música" hidden><span class="bars"><i></i><i></i><i></i></span></button>
+<a class="wa-float" id="wa-float" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp"></a>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto en grande" hidden>
+  <img id="lb-img" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+  <button class="lb-x" id="lb-x" type="button" aria-label="Cerrar">×</button>
+  <button class="lb-p" id="lb-p" type="button" aria-label="Foto anterior">←</button>
+  <button class="lb-n" id="lb-n" type="button" aria-label="Foto siguiente">→</button>
+</div>
+<div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="wrap">
+
+  <aside class="side">
+  <header>
+    <img class="logo" src="img/logo.svg" alt="Logo de Stylos Evieth">
+    <h1>Stylos Evieth</h1>
+    <p class="tag">Peluquería y estilismo</p>
+    <div class="chips"><span>Alisados</span><span>Color</span><span>Rizos</span><span>Cortes</span></div>
+  </header>
+
+  <nav class="links" aria-label="Enlaces principales" id="links"></nav>
+  </aside>
+  <main class="main">
+
+  <section id="antes-despues" aria-labelledby="h-ba">
+    <div class="sec-head">
+      <span class="eyebrow">Resultados reales</span>
+      <h2 id="h-ba">Antes y después</h2>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-set="color" id="tab-color">Color</button>
+      <button class="tab" role="tab" aria-selected="false" data-set="alisado" id="tab-alisado">Alisado</button>
+    </div>
+    <div class="ba" id="ba" style="--pos:50%">
+      <img id="ba-before" src="img/color-antes.jpg" alt="Antes: raíces canosas y puntas decoloradas">
+      <img id="ba-after" class="after" src="img/color-despues.jpg" alt="Después: color cobre parejo de raíz a puntas">
+      <div class="divider"></div>
+      <div class="knob" aria-hidden="true">⟷</div>
+      <span class="tagl">Antes</span><span class="tagr">Después</span>
+      <button class="zoom" type="button" id="ba-zoom">Ver en grande</button>
+      <input type="range" id="ba-range" min="0" max="100" value="50" aria-label="Deslizar para comparar antes y después">
+    </div>
+    <p class="ba-note" id="ba-note">Cobertura total de canas con tono cobre. Desliza para comparar.</p>
+  </section>
+
+  <section aria-labelledby="h-reels">
+    <div class="sec-head">
+      <span class="eyebrow">En el salón</span>
+      <h2 id="h-reels">Videos</h2>
+    </div>
+    <div class="reels" id="reels"></div>
+    <p class="scroll-hint">Desliza para ver más · toca un video para reproducirlo con sonido</p>
+  </section>
+
+  <section aria-labelledby="h-gal">
+    <div class="sec-head">
+      <span class="eyebrow">Trabajos</span>
+      <h2 id="h-gal">Galería</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="img/alisado-largo.jpg" alt="Cabello largo castaño oscuro, liso y brillante" loading="lazy"><figcaption>Alisado en cabello largo</figcaption></figure>
+      <figure><img src="img/brillo-castano.jpg" alt="Cabello castaño con reflejos, liso hasta la cintura" loading="lazy"><figcaption>Castaño con brillo</figcaption></figure>
+      <figure><img src="img/rizos.jpg" alt="Melena corta con rizos definidos" loading="lazy"><figcaption>Rizos definidos</figcaption></figure>
+      <figure><img src="img/rizos-espejo.jpg" alt="Clienta con rizos frente al espejo del salón" loading="lazy"><figcaption>Melena rizada</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-serv">
+    <div class="sec-head">
+      <span class="eyebrow">Lo que hacemos</span>
+      <h2 id="h-serv">Servicios</h2>
+    </div>
+    <ul class="services">
+      <li><strong>Alisado y keratina</strong><em>Consultar</em><span>Cabello liso, sin frizz y con brillo que dura semanas.</span></li>
+      <li><strong>Coloración</strong><em>Consultar</em><span>Tintes, cobertura de canas y corrección de color.</span></li>
+      <li><strong>Permanente y rizos</strong><em>Consultar</em><span>Ondas y rizos definidos con volumen.</span></li>
+      <li><strong>Corte y secado</strong><em>Consultar</em><span>Corte a la medida y brushing para salir lista.</span></li>
+      <li><strong>Tratamientos</strong><em>Consultar</em><span>Hidratación y reconstrucción para cabello dañado.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-pago" id="pago">
+    <div class="sec-head">
+      <span class="eyebrow">Pagos</span>
+      <h2 id="h-pago">Formas de pago</h2>
+    </div>
+    <div class="pay">
+      <div class="pay-head"><strong>Pago Móvil</strong><span>Bolívares</span></div>
+      <ol class="steps">
+        <li>Toca <b>Ver datos de pago</b> y copia los datos.</li>
+        <li>Haz el Pago Móvil desde la app de tu banco.</li>
+        <li>Envíanos el comprobante por WhatsApp.</li>
+      </ol>
+      <button class="pay-all" type="button" id="pay-show" aria-expanded="false" aria-controls="pay-data">Ver datos de pago</button>
+      <div id="pay-data" hidden>
+      <dl>
+        <div class="row"><dt>Banco</dt><dd>Banco de Venezuela (0102)</dd><button class="copy" type="button" data-copy="0102">Copiar</button></div>
+        <div class="row"><dt>Teléfono</dt><dd>0424-7222088</dd><button class="copy" type="button" data-copy="04247222088">Copiar</button></div>
+        <div class="row"><dt>Cédula</dt><dd>16934620</dd><button class="copy" type="button" data-copy="16934620">Copiar</button></div>
+        <div class="row"><dt>Titular</dt><dd>Jeussmarlen Genes</dd><button class="copy" type="button" data-copy="Jeussmarlen Genes">Copiar</button></div>
+      </dl>
+      <button class="pay-all copy" type="button" id="pay-all" data-copy="Pago Móvil
+Banco de Venezuela (0102)
+Teléfono: 0424-7222088
+C.I.: 16934620
+Titular: Jeussmarlen Genes">Copiar todos los datos</button>
+      <a class="pay-wa" id="pay-wa" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+    <div class="cash" aria-label="Efectivo">
+      <div><b>$</b><span>Dólares</span></div>
+      <div><b>COP</b><span>Pesos</span></div>
+      <div><b>Bs</b><span>Bolívares</span></div>
+    </div>
+    <p class="pay-note">Aceptamos efectivo en dólares, pesos y bolívares. Si pagas por Pago Móvil, envía el comprobante por WhatsApp al <span style="white-space:nowrap">0416-574 2920</span>.</p>
+  </section>
+
+  <section aria-labelledby="h-prod">
+    <div class="marble">
+      <div class="sec-head">
+        <span class="eyebrow">Calidad</span>
+        <h2 id="h-prod">Productos profesionales</h2>
+        <p>Trabajamos con tintes y tratamientos de línea profesional, recién llegados al salón.</p>
+      </div>
+      <div class="prod" id="prod"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-ig">
+    <div class="sec-head">
+      <span class="eyebrow">Instagram</span>
+      <h2 id="h-ig">Más trabajos</h2>
+    </div>
+    <div class="ig">
+      <a href="https://www.instagram.com/reel/CombNIigkLO/" target="_blank" rel="noopener">Reel 1 <span>↗</span></a>
+      <a href="https://www.instagram.com/reel/CrSBAEkA8qz/" target="_blank" rel="noopener">Reel 2 <span>↗</span></a>
+      <a href="https://www.instagram.com/p/Ctl-nrZL15S/" target="_blank" rel="noopener">Publicación 1 <span>↗</span></a>
+      <a href="https://www.instagram.com/p/DP6OcwLDrHU/" target="_blank" rel="noopener">Publicación 2 <span>↗</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <img class="logo" src="img/logo.svg" alt="">
+    <p id="f-dir"></p>
+    <p id="f-hor"></p>
+    <p>© Stylos Evieth</p>
+  </footer>
+  </main>
+</div>
+
+<script>
+/* ===== DATOS DEL SALÓN: rellenar aquí ===== */
+const SALON = {
+  whatsapp: "584165742920",
+  whatsappVer: "0416-574 2920",
+  telefono: "+584247222088",
+  telefonoVer: "0424-722 2088",
+  instagram: "stylos_evieth",
+  tiktok: "stylos_evieth",
+  direccion: "Las Vegas de Táriba, frente a Moto Zone EK",
+  mapa: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Moto Zone EK, Las Vegas de Táriba, Táchira, Venezuela"),
+  horario: ""          // ej. "Lun a Sáb · 9:00 a 6:00"
+};
+/* ========================================== */
+
+const ICON = {
+  wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>',
+  ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+  tt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>',
+  tel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>',
+  card:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>',
+  pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  sc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1 20 20M8.1 15.9 20 4"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>'
+};
+
+function linkBtn({href, icon, label, sub, primary}){
+  const el = document.createElement(href ? 'a' : 'div');
+  el.className = 'btn' + (primary ? ' primary' : '') + (href ? '' : ' pending');
+  if (href){ el.href = href; if (!href.startsWith('#')){ el.target = '_blank'; el.rel = 'noopener'; } }
+  el.innerHTML = ICON[icon] + '<span class="lbl">' + label + '<small>' + sub + '</small></span><span class="arr">→</span>';
+  return el;
+}
+const links = document.getElementById('links');
+const waMsg = encodeURIComponent('Hola, quiero agendar una cita en Stylos Evieth');
+links.append(
+  linkBtn({primary:true, icon:'wa', label:'Reservar cita por WhatsApp',
+    href: SALON.whatsapp ? 'https://wa.me/' + SALON.whatsapp + '?text=' + waMsg : '',
+    sub: SALON.whatsapp ? 'WhatsApp ' + SALON.whatsappVer : 'Número por confirmar'}),
+  linkBtn({icon:'tel', label:'Llamar para apartar tu cita', href:'tel:' + SALON.telefono, sub:SALON.telefonoVer}),
+  linkBtn({icon:'ig', label:'Instagram',
+    href: SALON.instagram ? 'https://www.instagram.com/' + SALON.instagram + '/' : 'https://www.instagram.com/p/DP6OcwLDrHU/',
+    sub: SALON.instagram ? '@' + SALON.instagram : 'Ver publicaciones'}),
+  linkBtn({icon:'tt', label:'TikTok',
+    href:'https://www.tiktok.com/@' + SALON.tiktok, sub:'@' + SALON.tiktok}),
+  linkBtn({icon:'sc', label:'Servicios', href:'#h-serv', sub:'Alisado, color, rizos y cortes'}),
+  linkBtn({icon:'card', label:'Formas de pago', href:'#pago', sub:'Pago Móvil · efectivo en $, pesos y Bs'}),
+  linkBtn({icon:'pin', label:'Cómo llegar', href: SALON.mapa || '',
+    sub: SALON.direccion || 'Dirección por confirmar'})
+);
+document.getElementById('f-dir').textContent = SALON.direccion + ' · Tel. ' + SALON.telefonoVer + ' · WhatsApp ' + SALON.whatsappVer;
+document.getElementById('f-hor').textContent = SALON.horario;
+
+/* Copiar datos de pago */
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () => {
+  const txt = b.dataset.copy, label = b.textContent;
+  const done = () => { b.classList.add('ok'); b.textContent = 'Copiado'; setTimeout(() => { b.classList.remove('ok'); b.textContent = label; }, 1600); };
+  const fallback = () => {
+    const dd = b.parentElement.querySelector('dd');
+    if (dd){ const r = document.createRange(); r.selectNodeContents(dd); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    b.textContent = 'Mantén presionado para copiar'; setTimeout(() => { b.textContent = label; }, 2200);
+  };
+  try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
+}));
+
+/* Mostrar datos de pago */
+const payShow = document.getElementById('pay-show'), payData = document.getElementById('pay-data');
+payShow.addEventListener('click', () => {
+  const open = payData.hidden;
+  payData.hidden = !open;
+  payShow.setAttribute('aria-expanded', open);
+  payShow.textContent = open ? 'Ocultar datos' : 'Ver datos de pago';
+});
+const payWa = document.getElementById('pay-wa');
+payWa.href = 'https://wa.me/' + SALON.whatsapp + '?text=' + encodeURIComponent('Hola, ya hice el Pago Móvil para mi cita en Stylos Evieth. Te envío el comprobante.');
+payWa.innerHTML = ICON.wa + '<span>Enviar comprobante</span>';
+
+/* Bienvenida */
+const splash = document.getElementById('splash');
+document.body.style.overflow = 'hidden';
+document.getElementById('enter').addEventListener('click', () => {
+  splash.classList.add('out');
+  document.body.style.overflow = '';
+  document.body.classList.add('entered');
+  setTimeout(() => { splash.hidden = true; }, 750);
+  startMusic();
+});
+
+/* Música ambiental generada en la página (original, sin derechos) */
+let AC, master, musicOn = false;
+const VOL = 0.07;
+function startMusic(){
+  try{
+    AC = new (window.AudioContext || window.webkitAudioContext)();
+  }catch(e){ return; }
+  master = AC.createGain(); master.gain.value = 0;
+  const lp = AC.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1800;
+  const dl = AC.createDelay(); dl.delayTime.value = 0.42;
+  const fb = AC.createGain(); fb.gain.value = 0.35;
+  dl.connect(fb); fb.connect(dl);
+  lp.connect(master); dl.connect(master); master.connect(AC.destination);
+  master.gain.linearRampToValueAtTime(VOL, AC.currentTime + 5);
+  musicOn = true;
+  const btn = document.getElementById('sound'); btn.hidden = false;
+  btn.onclick = () => {
+    musicOn = !musicOn;
+    master.gain.cancelScheduledValues(AC.currentTime);
+    master.gain.setTargetAtTime(musicOn ? VOL : 0, AC.currentTime, 0.3);
+    btn.classList.toggle('muted', !musicOn);
+    btn.setAttribute('aria-label', musicOn ? 'Silenciar música' : 'Activar música');
+  };
+  const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+  // Fmaj9 → Am7 → Dm9 → Bbmaj7
+  const CHORDS = [[53,60,64,67,69],[57,60,64,67,71],[50,57,60,64,65],[46,57,62,65,69]];
+  const BELL = [72,74,76,79,81,84];
+  const BAR = 8;
+  function pad(notes, t){
+    notes.forEach((n, i) => {
+      ['sine','triangle'].forEach((type, k) => {
+        const o = AC.createOscillator(), g = AC.createGain();
+        o.type = type; o.frequency.value = mtof(n); o.detune.value = (k ? 6 : -6) + i;
+        const peak = (k ? 0.05 : 0.09) / notes.length * 3;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(peak, t + 2.5);
+        g.gain.setValueAtTime(peak, t + BAR - 1.5);
+        g.gain.linearRampToValueAtTime(0, t + BAR + 1.5);
+        o.connect(g); g.connect(lp); o.start(t); o.stop(t + BAR + 1.6);
+      });
+    });
+  }
+  function bell(t){
+    const o = AC.createOscillator(), g = AC.createGain();
+    o.type = 'sine'; o.frequency.value = mtof(BELL[Math.floor(Math.random() * BELL.length)]);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.06, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 3);
+    o.connect(g); g.connect(lp); g.connect(dl); o.start(t); o.stop(t + 3.1);
+  }
+  let step = 0, next = AC.currentTime + 0.1;
+  (function schedule(){
+    while (next < AC.currentTime + BAR * 1.5){
+      pad(CHORDS[step % CHORDS.length], next);
+      for (let b = 0; b < 3; b++) if (Math.random() < 0.7) bell(next + 1 + b * 2.3 + Math.random() * 0.8);
+      next += BAR; step++;
+    }
+    setTimeout(schedule, 2000);
+  })();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) AC.suspend(); else AC.resume();
+  });
+}
+
+/* Antes y después */
+const SETS = {
+  color:   {b:'img/color-antes.jpg',   a:'img/color-despues.jpg',   ab:'Antes: raíces canosas y puntas decoloradas', aa:'Después: color cobre parejo de raíz a puntas', note:'Cobertura total de canas con tono cobre. Desliza para comparar.'},
+  alisado: {b:'img/alisado-antes.jpg', a:'img/alisado-despues.jpg', ab:'Antes: cabello largo, ondulado y con frizz',   aa:'Después: cabello negro liso y brillante',       note:'Alisado en cabello largo: de ondulado con frizz a liso con brillo. Desliza para comparar.'}
+};
+const ba = document.getElementById('ba'), range = document.getElementById('ba-range');
+range.addEventListener('input', () => ba.style.setProperty('--pos', range.value + '%'));
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', x === t));
+  const s = SETS[t.dataset.set];
+  const b = document.getElementById('ba-before'), a = document.getElementById('ba-after');
+  b.src = s.b; b.alt = s.ab; a.src = s.a; a.alt = s.aa;
+  document.getElementById('ba-note').textContent = s.note;
+  range.value = 50; ba.style.setProperty('--pos','50%');
+}));
+
+/* Pista: el deslizador se mueve solo la primera vez que se ve */
+const baObs = new IntersectionObserver(es => {
+  if (!es[0].isIntersecting || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  baObs.disconnect();
+  const keys = [[0,50],[700,22],[1500,78],[2300,50]];
+  const t0 = performance.now();
+  (function tick(now){
+    const t = now - t0; let i = 0;
+    while (i < keys.length - 2 && t > keys[i+1][0]) i++;
+    const [ta,va] = keys[i], [tb,vb] = keys[i+1];
+    const k = Math.min(1, Math.max(0, (t - ta) / (tb - ta))), e = k < .5 ? 2*k*k : 1 - Math.pow(-2*k+2,2)/2;
+    const v = va + (vb - va) * e;
+    range.value = v; ba.style.setProperty('--pos', v + '%');
+    if (t < keys[keys.length-1][0]) requestAnimationFrame(tick);
+  })(t0);
+}, {threshold:.6});
+baObs.observe(ba);
+
+/* WhatsApp flotante: aparece al bajar */
+const waF = document.getElementById('wa-float');
+waF.href = 'https://wa.me/' + SALON.whatsapp + '?text=' + waMsg;
+waF.innerHTML = ICON.wa + '<span>Reservar</span>';
+addEventListener('scroll', () => waF.classList.toggle('show', scrollY > 420), {passive:true});
+
+/* Visor de fotos */
+const LB = [
+  {src:'img/color-antes.jpg', cap:'Color · antes'}, {src:'img/color-despues.jpg', cap:'Color · después'},
+  {src:'img/alisado-antes.jpg', cap:'Alisado · antes'}, {src:'img/alisado-despues.jpg', cap:'Alisado · después'},
+  ...[...document.querySelectorAll('.gallery figure')].map(f => ({src:f.querySelector('img').getAttribute('src'), cap:f.querySelector('figcaption').textContent}))
+];
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+let lbI = 0, lastFocus = null;
+function lbShow(i){ lbI = (i + LB.length) % LB.length; lbImg.src = LB[lbI].src; lbImg.alt = LB[lbI].cap; lbCap.textContent = LB[lbI].cap + '  ·  ' + (lbI+1) + '/' + LB.length; }
+function lbOpen(i){ lastFocus = document.activeElement; lbShow(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lb-x').focus(); }
+function lbClose(){ lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+document.querySelectorAll('.gallery img').forEach((im, k) => { im.tabIndex = 0; im.addEventListener('click', () => lbOpen(4 + k)); im.addEventListener('keydown', e => { if (e.key === 'Enter') lbOpen(4 + k); }); });
+document.getElementById('ba-zoom').addEventListener('click', () => {
+  const set = document.querySelector('.tab[aria-selected="true"]').dataset.set; lbOpen(set === 'color' ? 0 : 2);
+});
+document.getElementById('lb-x').onclick = lbClose;
+document.getElementById('lb-p').onclick = () => lbShow(lbI - 1);
+document.getElementById('lb-n').onclick = () => lbShow(lbI + 1);
+lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') lbClose(); if (e.key === 'ArrowRight') lbShow(lbI + 1); if (e.key === 'ArrowLeft') lbShow(lbI - 1); });
+let sx = null;
+lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) lbShow(lbI + (dx < 0 ? 1 : -1)); sx = null; });
+
+/* Videos */
+const CLIPS = [
+  [1,'Alisado con brillo'],[6,'Liso hasta la cintura'],[2,'Resultado final'],[3,'Antes de salir'],
+  [5,'Movimiento y brillo'],[4,'Puntas pulidas'],[7,'Color cobre']
+];
+function reel(n, cap, holder){
+  const d = document.createElement('div'); d.className = 'reel';
+  d.innerHTML = '<video src="vid/clip'+n+'.mp4" poster="vid/clip'+n+'.jpg" playsinline loop preload="none"></video>' +
+    '<button type="button" aria-label="Reproducir: '+cap+'"><span class="play">'+ICON.play+'</span></button>' +
+    (cap ? '<span class="cap">'+cap+'</span>' : '');
+  const v = d.querySelector('video'), b = d.querySelector('button');
+  b.addEventListener('click', () => {
+    if (v.paused){
+      document.querySelectorAll('.reel video').forEach(o => { if (o !== v){ o.pause(); o.closest('.reel').classList.remove('playing'); } });
+      v.muted = false; v.play().catch(()=>{ v.muted = true; v.play().catch(()=>{}); });
+      d.classList.add('playing');
+    } else { v.pause(); d.classList.remove('playing'); }
+  });
+  holder.append(d);
+}
+const reels = document.getElementById('reels');
+CLIPS.forEach(([n,c]) => reel(n, c, reels));
+const prod = document.getElementById('prod');
+[8,9,10].forEach(n => reel(n, '', prod));
+</script>
+
+</body>
+</html>
