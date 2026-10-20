@@ -148,6 +148,20 @@ section{display:flex;flex-direction:column;gap:16px}
 .services span{grid-column:1;color:var(--muted);font-size:.9rem}
 .services em{grid-column:2;grid-row:1;font-style:normal;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);align-self:center}
 
+/* La estilista */
+.about{display:grid;gap:18px}
+.about figure{margin:0;position:relative;overflow:hidden;background:var(--marble)}
+.about figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.about figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.about figcaption b{display:block;font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.2}
+.about figcaption span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+.about .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.about .txt p{color:var(--ink);font-size:1rem;max-width:60ch}
+.about .lead{font-family:var(--display);font-style:italic;font-size:1.3rem;line-height:1.35}
+.about .cta{align-self:flex-start;margin-top:4px;padding:12px 18px;border:1px solid var(--ink);text-decoration:none;font-weight:500;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+.about .cta:hover{background:var(--ink);color:var(--bg)}
+@media (min-width:960px){.about{grid-template-columns:minmax(0,320px) 1fr;gap:36px;align-items:center}}
+
 /* Formas de pago */
 .pay{border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;flex-direction:column}
 .pay-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 18px 12px;border-bottom:1px solid var(--line)}
@@ -315,6 +329,25 @@ body.entered .links>*:nth-child(6){animation-delay:.4s}
   <nav class="links" aria-label="Enlaces principales" id="links"></nav>
   </aside>
   <main class="main">
+
+  <section aria-labelledby="h-about" id="estilista">
+    <div class="sec-head">
+      <span class="eyebrow">La estilista</span>
+      <h2 id="h-about">Detrás de cada estilo</h2>
+    </div>
+    <div class="about">
+      <figure>
+        <img src="img/evieth.jpg" alt="Jeussmarlen Genes sonriendo en su salón Stylos Evieth">
+        <figcaption><b>Jeussmarlen Genes</b><span>Estilista y fundadora</span></figcaption>
+      </figure>
+      <div class="txt">
+        <p class="lead">Que salgas del salón sintiéndote tú misma, pero en tu mejor versión.</p>
+        <p>Esa es la idea detrás de Stylos Evieth. Jeussmarlen se especializa en alisados, color y rizos: escucha lo que quieres, revisa cómo está tu cabello y te recomienda lo que de verdad le conviene.</p>
+        <p>Trabaja con productos profesionales y se toma el tiempo de dejar cada detalle listo antes de que te levantes de la silla.</p>
+        <a class="cta" id="about-cta" target="_blank" rel="noopener">Agenda con ella</a>
+      </div>
+    </div>
+  </section>
 
   <section id="antes-despues" aria-labelledby="h-ba">
     <div class="sec-head">
@@ -515,6 +548,7 @@ payShow.addEventListener('click', () => {
   payShow.setAttribute('aria-expanded', open);
   payShow.textContent = open ? 'Ocultar datos' : 'Ver datos de pago';
 });
+document.getElementById('about-cta').href = 'https://wa.me/' + SALON.whatsapp + '?text=' + waMsg;
 const payWa = document.getElementById('pay-wa');
 payWa.href = 'https://wa.me/' + SALON.whatsapp + '?text=' + encodeURIComponent('Hola, ya hice el Pago Móvil para mi cita en Stylos Evieth. Te envío el comprobante.');
 payWa.innerHTML = ICON.wa + '<span>Enviar comprobante</span>';
