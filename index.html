@@ -148,6 +148,19 @@ section{display:flex;flex-direction:column;gap:16px}
 .services span{grid-column:1;color:var(--muted);font-size:.9rem}
 .services em{grid-column:2;grid-row:1;font-style:normal;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);align-self:center}
 
+/* Reservar por servicio */
+.services .book{grid-column:2;grid-row:1 / span 2;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid var(--ink);
+  text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.services .book svg{width:14px;height:14px}
+.services .book:hover{background:var(--ink);color:var(--bg)}
+.serv-note{font-size:.88rem;color:var(--muted)}
+/* Cuidados */
+.care-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.care-list li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.care-list li::before{content:"";width:7px;height:7px;margin:9px 0 0 6px;border-radius:50%;background:var(--gold)}
+.care-list b{font-weight:500}
+.care-note{font-size:.88rem;color:var(--muted)}
+
 /* La estilista */
 .about{display:grid;gap:18px}
 .about figure{margin:0;position:relative;overflow:hidden;background:var(--marble)}
@@ -406,6 +419,20 @@ body.entered .links>*:nth-child(6){animation-delay:.4s}
     </ul>
   </section>
 
+  <section aria-labelledby="h-care" id="cuidados">
+    <div class="sec-head">
+      <span class="eyebrow">Después de tu cita</span>
+      <h2 id="h-care">Cuida tu resultado</h2>
+    </div>
+    <div class="tabs" role="tablist" id="care-tabs">
+      <button class="tab" role="tab" aria-selected="true" data-care="alisado" id="care-alisado">Alisado</button>
+      <button class="tab" role="tab" aria-selected="false" data-care="color" id="care-color">Color</button>
+      <button class="tab" role="tab" aria-selected="false" data-care="rizos" id="care-rizos">Rizos</button>
+    </div>
+    <ul class="care-list" id="care-list"></ul>
+    <p class="care-note">Cada cabello es distinto. Si tienes dudas sobre tu caso, escríbenos por WhatsApp.</p>
+  </section>
+
   <section aria-labelledby="h-pago" id="pago">
     <div class="sec-head">
       <span class="eyebrow">Pagos</span>
@@ -540,6 +567,49 @@ document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () =
   try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
 }));
 
+/* Reservar por servicio */
+document.querySelectorAll('.services li').forEach(li => {
+  const name = li.querySelector('strong').textContent;
+  const a = document.createElement('a');
+  a.className = 'book'; a.target = '_blank'; a.rel = 'noopener';
+  a.href = 'https://wa.me/' + SALON.whatsapp + '?text=' + encodeURIComponent('Hola, quiero agendar una cita para ' + name.toLowerCase() + ' en Stylos Evieth. ¿Qué días tienes disponibles?');
+  a.setAttribute('aria-label', 'Reservar ' + name + ' por WhatsApp');
+  a.innerHTML = ICON.wa + 'Reservar';
+  li.querySelector('em').replaceWith(a);
+});
+
+/* Cuidados */
+const CARE = {
+  alisado: [
+    ['Primer lavado:', 'espera el tiempo que te indique tu estilista antes de lavar.'],
+    ['Champú sin sal ni sulfatos:', 'así el alisado te dura mucho más.'],
+    ['Sin marcas:', 'los primeros días evita ganchos, colitas apretadas y ponerte el cabello detrás de la oreja.'],
+    ['Protector térmico', 'siempre antes del secador o la plancha.'],
+    ['Piscina y playa:', 'enjuaga con agua dulce apenas salgas del cloro o del mar.']
+  ],
+  color: [
+    ['Primer lavado:', 'espera al menos 48 horas para que el color se fije.'],
+    ['Champú para cabello teñido', 'y sin sulfatos, para que el tono no se apague.'],
+    ['Agua tibia o fría:', 'el agua muy caliente se lleva el color.'],
+    ['Mascarilla una vez por semana', 'para mantener el brillo.'],
+    ['Retoque de raíz', 'cada 4 a 6 semanas, o cuando empiece a notarse.']
+  ],
+  rizos: [
+    ['Primer lavado:', 'espera el tiempo que te indique tu estilista.'],
+    ['No cepilles en seco:', 'desenreda con peine de dientes anchos y acondicionador.'],
+    ['Define con crema para peinar', 'o gel, con el cabello húmedo.'],
+    ['Seca al aire o con difusor', 'para que el rizo no se abra.'],
+    ['Duerme con funda de satén', 'o el cabello recogido arriba, suelto y sin apretar.']
+  ]
+};
+const careList = document.getElementById('care-list');
+function showCare(k){
+  careList.innerHTML = CARE[k].map(([b, t]) => '<li><span><b>' + b + '</b> ' + t + '</span></li>').join('');
+  document.querySelectorAll('#care-tabs .tab').forEach(x => x.setAttribute('aria-selected', x.dataset.care === k));
+}
+document.querySelectorAll('#care-tabs .tab').forEach(t => t.addEventListener('click', () => showCare(t.dataset.care)));
+showCare('alisado');
+
 /* Mostrar datos de pago */
 const payShow = document.getElementById('pay-show'), payData = document.getElementById('pay-data');
 payShow.addEventListener('click', () => {
@@ -634,8 +704,8 @@ const SETS = {
 };
 const ba = document.getElementById('ba'), range = document.getElementById('ba-range');
 range.addEventListener('input', () => ba.style.setProperty('--pos', range.value + '%'));
-document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', x === t));
+document.querySelectorAll('#antes-despues .tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('#antes-despues .tab').forEach(x => x.setAttribute('aria-selected', x === t));
   const s = SETS[t.dataset.set];
   const b = document.getElementById('ba-before'), a = document.getElementById('ba-after');
   b.src = s.b; b.alt = s.ab; a.src = s.a; a.alt = s.aa;
@@ -680,7 +750,7 @@ function lbOpen(i){ lastFocus = document.activeElement; lbShow(i); lb.hidden = f
 function lbClose(){ lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
 document.querySelectorAll('.gallery img').forEach((im, k) => { im.tabIndex = 0; im.addEventListener('click', () => lbOpen(4 + k)); im.addEventListener('keydown', e => { if (e.key === 'Enter') lbOpen(4 + k); }); });
 document.getElementById('ba-zoom').addEventListener('click', () => {
-  const set = document.querySelector('.tab[aria-selected="true"]').dataset.set; lbOpen(set === 'color' ? 0 : 2);
+  const set = document.querySelector('#antes-despues .tab[aria-selected="true"]').dataset.set; lbOpen(set === 'color' ? 0 : 2);
 });
 document.getElementById('lb-x').onclick = lbClose;
 document.getElementById('lb-p').onclick = () => lbShow(lbI - 1);
