@@ -422,6 +422,7 @@ body.entered .links>*:nth-child(6){animation-delay:.4s}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-set="color" id="tab-color">Color</button>
       <button class="tab" role="tab" aria-selected="false" data-set="alisado" id="tab-alisado">Alisado</button>
+      <button class="tab" role="tab" aria-selected="false" data-set="canas" id="tab-canas">Canas</button>
     </div>
     <div class="ba" id="ba" style="--pos:50%">
       <img id="ba-before" src="img/color-antes.jpg" alt="Antes: raíces canosas y puntas decoloradas">
@@ -907,7 +908,8 @@ function startMusic(){
 /* Antes y después */
 const SETS = {
   color:   {b:'img/color-antes.jpg',   a:'img/color-despues.jpg',   ab:'Antes: raíces canosas y puntas decoloradas', aa:'Después: color cobre parejo de raíz a puntas', note:'Cobertura total de canas con tono cobre. Desliza para comparar.'},
-  alisado: {b:'img/alisado-antes.jpg', a:'img/alisado-despues.jpg', ab:'Antes: cabello largo, ondulado y con frizz',   aa:'Después: cabello negro liso y brillante',       note:'Alisado en cabello largo: de ondulado con frizz a liso con brillo. Desliza para comparar.'}
+  alisado: {b:'img/alisado-antes.jpg', a:'img/alisado-despues.jpg', ab:'Antes: cabello largo, ondulado y con frizz',   aa:'Después: cabello negro liso y brillante',       note:'Alisado en cabello largo: de ondulado con frizz a liso con brillo. Desliza para comparar.'},
+  canas:   {b:'img/canas-antes.jpg',   a:'img/canas-despues.jpg',   ab:'Antes: cabello con canas',                     aa:'Después: castaño parejo y melena con forma',     note:'Cobertura de canas y corte en melena. Desliza para comparar.'}
 };
 const ba = document.getElementById('ba'), range = document.getElementById('ba-range');
 range.addEventListener('input', () => ba.style.setProperty('--pos', range.value + '%'));
@@ -949,6 +951,8 @@ const LB = [
   {src:'img/color-antes.jpg', cap:'Color · antes'}, {src:'img/color-despues.jpg', cap:'Color · después'},
   {src:'img/alisado-antes.jpg', cap:'Alisado · antes'}, {src:'img/alisado-despues.jpg', cap:'Alisado · después'},
   ...[...document.querySelectorAll('.gallery figure')].map(f => ({src:f.querySelector('img').getAttribute('src'), cap:f.querySelector('figcaption').textContent}))
+,
+  {src:'img/canas-antes.jpg', cap:'Canas · antes'}, {src:'img/canas-despues.jpg', cap:'Canas · después'}
 ];
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
 let lbI = 0, lastFocus = null;
@@ -957,7 +961,7 @@ function lbOpen(i){ lastFocus = document.activeElement; lbShow(i); lb.hidden = f
 function lbClose(){ lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
 document.querySelectorAll('.gallery img').forEach((im, k) => { im.tabIndex = 0; im.addEventListener('click', () => lbOpen(4 + k)); im.addEventListener('keydown', e => { if (e.key === 'Enter') lbOpen(4 + k); }); });
 document.getElementById('ba-zoom').addEventListener('click', () => {
-  const set = document.querySelector('#antes-despues .tab[aria-selected="true"]').dataset.set; lbOpen(set === 'color' ? 0 : 2);
+  const set = document.querySelector('#antes-despues .tab[aria-selected="true"]').dataset.set; lbOpen(set === 'color' ? 0 : set === 'alisado' ? 2 : LB.length - 2);
 });
 document.getElementById('lb-x').onclick = lbClose;
 document.getElementById('lb-p').onclick = () => lbShow(lbI - 1);
@@ -970,7 +974,7 @@ lb.addEventListener('touchend', e => { if (sx === null) return; const dx = e.cha
 
 /* Videos */
 const CLIPS = [
-  [1,'Alisado con brillo'],[6,'Liso hasta la cintura'],[2,'Resultado final'],[3,'Antes de salir'],
+  [11,'Antes y después · canas'],[1,'Alisado con brillo'],[6,'Liso hasta la cintura'],[2,'Resultado final'],[3,'Antes de salir'],
   [5,'Movimiento y brillo'],[4,'Puntas pulidas'],[7,'Color cobre']
 ];
 function reel(n, cap, holder){
